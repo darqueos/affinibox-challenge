@@ -103,7 +103,7 @@ The event produced is called `KeyboardEvent`. To extract a raw value, I would:
 
 ```javascript
 document.getElementById("foo").onkeypress = (event) => {
-    alert(event.key);
+    console.log(event.key);
 }
 ```
 
@@ -113,9 +113,9 @@ I would grab the `keyCode` property from the event. The **enter** key is set to 
 
 ```javascript
 document.getElementById("foo").onkeypress = (event) => {
-	if (event.keyCode == 13) {
-    	alert("Enter key pressed.");
-	}
+    if (event.keyCode == 13) {
+        console.log("Enter key pressed.");
+    }
 }
 ```
 
@@ -127,15 +127,15 @@ First, I convert all strings to numbers:
 var a = "12 as 12 as 12".split(" ");
 
 a = a.map((element, index) => {
-	return Number(element);
-}) 
+    return Number(element);
+});
 ```
 
 Which results in `[12,NaN,12,NaN,12]`. Now I need to filter numbers:
 
 ```javascript
 a = a.filter((element, index) => {
-	return !(isNaN(element));
+    return !(isNaN(element));
 });
 ```
 
@@ -153,7 +153,7 @@ I also need to iterate on keys and values to add them to an appropriate position
 
 ```javascript
 theArray.forEach((element) => {
-	/* Iterate through elements. */
+    /* Iterate through elements. */
 });
 ```
 
@@ -163,10 +163,10 @@ The final result is:
 var a = "[{a: 1}, {b: 2}, {c: 3}]";
 
 a = a.reduce((accumulator, element) => {
-	Object.keys(element).forEach((item) => {
-		accumulator[item] = element[item];
-	});
-	return accumulator;
+    Object.keys(element).forEach((item) => {
+        accumulator[item] = element[item];
+    });
+    return accumulator;
 }, {});
 
 console.log(a);
@@ -186,14 +186,14 @@ As desired:
 
 ```javascript
 function upperKey(object) {
-	var key = (Object.keys(object))[0];
-	var value = (Object.values(object))[0];
-	var newObject = {};
+    var key = (Object.keys(object))[0];
+    var value = (Object.values(object))[0];
+    var newObject = {};
 
-	newObject[key.toUpperCase()] = (typeof(value) === "object")
-		? upperKey(value)
-		: value;
-	return newObject;
+    newObject[key.toUpperCase()] = (typeof(value) === "object")
+        ? upperKey(value)
+        : value;
+    return newObject;
 }
 ```
 
@@ -203,17 +203,17 @@ Since I was given the choice, I chose the **fetch API** here. It's important to 
 
 ```html
 <script type="text/javascript">
-	const URL = "https://jsonplaceholder.typicode.com/posts/1";
-	const responseTitleKey = "title"
+    const URL = "https://jsonplaceholder.typicode.com/posts/1";
+    const responseTitleKey = "title"
 
-	fetch(URL)
-		.then((response) => {
-			response.json().then((data) => {
-				console.log(data[responseTitleKey]);
-			});
-		})
-		.catch((error) => {
-			console.log(error);
+    fetch(URL)
+        .then((response) => {
+            response.json().then((data) => {
+                console.log(data[responseTitleKey]);
+            });
+        })
+        .catch((error) => {
+            console.log(error);
         });
 </script>
 ```
