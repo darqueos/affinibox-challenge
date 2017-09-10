@@ -219,3 +219,36 @@ Since I was given the choice, I chose the **fetch API** here. It's important to 
 ```
 
 #### Question 17: Write a simple line of code to show you know `setTimeout`
+
+Show an alert after 3 seconds:
+
+```javascript
+function sayHello() {
+    alert("Delayed hello, world!");
+}
+
+setTimeout(sayHello, 3000);
+```
+
+#### Question 18: Explain what it does
+
+`setInterval` executes a code repeatedly with a time interval between executions. `cleatInterval` is self-explanatory.
+
+#### Question 19: Write a simple line of code to show you know `setInterval` and `clearInterval`
+
+Here you go:
+
+```javascript
+var count = 0;
+
+var intervalID = setInterval(() => {
+    console.log(count++);
+}, 2000);
+
+function cancelRepeat(ID) {
+    clearInterval(ID);
+}
+```
+
+#### Question 20: Convert the code above use `Promises` instead of callbacks
+
