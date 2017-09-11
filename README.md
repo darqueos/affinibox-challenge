@@ -175,7 +175,7 @@ Which outputs: `{ a: 1, b: 2, c: 3 }`.
 
 It prints "*JavaScript thinks these objects are not equal*" because JS only compares values for primitive types. For any other type it compares using references. Since `A` and `B` are different instances of objects allocated in different memory positions, testing will always result in `false`.
 
-There're tons of ways to compare equality of values in objects, but I'd use the function `isEqual()` from the [Lodash](https://lodash.com/docs#isEqual) library.
+There're tons of ways to compare equality of values in objects, but I'd use the function `_.isEqual()` from the [Lodash](https://lodash.com/docs#isEqual) library.
 
 #### Question 15: Answer with the code of your implementation.
 
@@ -247,20 +247,90 @@ function cancelRepeat(ID) {
 
 #### Question 20: Convert the code above use `Promises` instead of callbacks
 
-I've never wrote any code that uses `Promises`, but after learning about it from the [mentioned article](https://scotch.io/tutorials/javascript-promises-for-dummies) I chose to
+I've never wrote any code that uses `Promises`, but after learning about it from the [mentioned article](https://scotch.io/tutorials/javascript-promises-for-dummies) I chose to implement this using ES2016 specification:
 
 ```javascript
-const fs = require('fs');
 
-const reader = (filepath, callback) => fs.readFile(filepath, (err, content) => {
-    if (err) {
-        console.error('Failed to read files');
-        return callback('');
-    }
-    return callback(content.toString());
-});
-reader('./somefile.txt', (content) => {
-    //Reader always returns a string, an empty one if it can't read the file
-    console.log(`Found content: ${content}`);
-})
 ```
+
+#### Question 21: What is the resulting phrase?
+#### Question 22: How does it work?
+
+### Nodejs
+
+#### Question 23: What file / line you had to change?
+#### Question 24: Show the command to add lodash to this project
+#### Question 25: `npm` install would know lodash is a dependency on fresh install? If so, how?
+#### Question 26: What is the result of the statement above?
+#### Question 27: What is the result of the statement above?
+#### Question 28: Implement the function above using lodash and answer with the source
+#### Question 29: Add a script to package JSON so that:
+#### Question 30: Write a code that prints the contents of the env variable
+#### Question 31: What is the value of the statement, `__dirname + '/server'`?
+#### Question 32: Answer with your code for `readMany`
+#### Question 33: Give the npm command to install all the external dependencies
+#### Question 34: Answer with your code for `app.use('/sum', (req, res, next) => { ... })`
+
+### ES2015
+
+#### Question 35: Rewrite `times` in the least number of characters as possible using arrow functions.
+#### Question 36: What was the command you used?
+#### Question 37: Will the code above work?
+#### Question 38: Why to import just `map`?
+#### Question 39: Answer with your implementation of `arrTimes`
+
+### React
+
+#### Question 40: In a few words, what is React?
+#### Question 41: In a few words, what is React Native?
+#### Question 42: For all the methods of the class above, answer the questions:
+
+### SQL
+
+#### Question 43: a `SELECT` statement that reads all the `TradingNames` of the `AffinityGroup`
+#### Question 44: a `SELECT` with `JOIN` that reads all the `Name`s of the owners of an `AffinityGroup`
+#### Question 45: the statement that reads all the `Name`s of Users that are not owners of an `AffinityGroup`:
+#### Question 46: the first select ordering by `AffinityGroup`.`TradingName`
+#### Question 47: a query that returns only the first letter of the name and the full surname for every user
+
+### Linux
+
+#### Question 48: What would be the command to open all css files in a folder using Sublime from terminal using the commands above?
+
+I'd build a regex to match all CSS extensions.
+
+```
+"*.(css|sass|scss|less)"
+```
+
+And then attach it to the `find` command:
+
+```bash
+find /a_folder -type f -regextype "posix-extended" -iregex "*.(css|sass|scss|less)" | xargs subl
+```
+
+#### Question 49: What would be the command to access `root` on `192.168.1.10` on port `2222`?
+#### Question 50: Based on the examples above, what would be command to change `white` to `aliceblue` in all CSS files in a folder?
+
+### Docker
+
+#### Question 51: In your own words, what is a container and why to use it?
+#### Question 52: In your own words, what is Docker?
+#### Question 53: How to this Dockerfile so instead of copying `node_modules` from the local machine it installs using `npm`.
+#### Question 54: Knowing the above, answer with the command to start a `Postgres` container on your machine at port `5432`.
+#### Question 55: What was the variable and what was it's value?
+#### Question 56: What would be the command to start a mysql instance?
+
+### Kubernetes
+
+#### Question 57: Explain what is kubernetes in your own words? (portuguese, if needed)
+
+### CSS
+
+#### Question 58: What is the color of the text of the `a` element?
+#### Question 59: How to make it so the items are in a column and it look like:
+#### Question 60: How to make it so the items are centralized on the page with the space around them, like:
+
+### English
+
+No problem! I would like to take the time to thank you for a concise test. Looking forward to hearing from you and possibly get a feedback. Regards!
