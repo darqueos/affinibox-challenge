@@ -384,13 +384,54 @@ console.log(process.env.MY_VAR);
 ```
 
 #### Question 31: What is the value of the statement, `__dirname + '/server'`?
+
+It should be the full path for the `server` folder in the system.
+
 #### Question 32: Answer with your code for `readMany`
+
+After a quick glance at `bluebird` docs, I read that `readFileAsync()` throws an error in case of failure:
+
+```javascript
+const B = require('bluebird');
+const _ = require('lodash');
+const fs = B.promisifyAll(require('fs'));
+const errorMessage = "<file empty or non-existing>";
+
+const readMany = (...filepaths) => B.all(
+    _.map(filepaths, filepath =>
+        fs.readFileAsync(filepath)
+          .then(content => content.toString())
+          .catch(error => errorMessage)
+    )
+);
+
+readMany('./fileone','./filetwo', './filethree').then(contents => console.log(contents.join('\n')))
+```
+
 #### Question 33: Give the npm command to install all the external dependencies
+
+Dependencies are listed as requirements within `myserver.js`.
+
+```bash
+npm install express cookie-parser body-parser
+```
+
 #### Question 34: Answer with your code for `app.use('/sum', (req, res, next) => { ... })`
+
+First, I have to reorder the endpoint callback a few lines up, otherwise it won't call it. Then:
+
+```javascript
+app.use("/sum", (req, res, next) => {
+    res.json(Number(req.query["a"]) + Number(req.query["b"]));
+});
+```
 
 ### ES2015
 
 #### Question 35: Rewrite `times` in the least number of characters as possible using arrow functions.
+
+
+
 #### Question 36: What was the command you used?
 #### Question 37: Will the code above work?
 #### Question 38: Why to import just `map`?
