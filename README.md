@@ -307,8 +307,28 @@ The first line is pretty trivial, but the second one works by binding a new valu
 ### Nodejs
 
 #### Question 23: What file / line you had to change?
+
+I don't know much about **Webpack** as I'd like, so instead I inspected the page to find the hex code for the *gameboy* and then searched for it in the project folder. Then replaced `efcc19` for the *steelblue* color:
+
+```less
+// /src/containers/index.less
+// line 84
+
+background: #4682b4;
+```
+
 #### Question 24: Show the command to add lodash to this project
+
+The easiest way is to use `npm`:
+
+```bash
+npm i --save lodash
+```
+
 #### Question 25: `npm` install would know lodash is a dependency on fresh install? If so, how?
+
+No, although I'm not certain. Lodash could be a dependency of another dependency. Anyway, I could add it to `package.json`.
+
 #### Question 26: What is the result of the statement above?
 #### Question 27: What is the result of the statement above?
 #### Question 28: Implement the function above using lodash and answer with the source
