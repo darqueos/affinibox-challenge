@@ -311,7 +311,7 @@ The first line is pretty trivial, but the second one works by binding a new valu
 I don't know much about **Webpack** as I'd like, so instead I inspected the page to find the hex code for the *gameboy* and then searched for it in the project folder. Then replaced `efcc19` for the *steelblue* color:
 
 ```less
-// /src/containers/index.less
+// file /src/containers/index.less
 // line 84
 
 background: #4682b4;
@@ -330,8 +330,31 @@ npm i --save lodash
 No, although I'm not certain. Lodash could be a dependency of another dependency. Anyway, I could add it to `package.json`.
 
 #### Question 26: What is the result of the statement above?
+
+```javascript
+{A: 1, B: 2, C: 3}
+```
+
 #### Question 27: What is the result of the statement above?
+
+```javascript
+{a: 1, b: 2, c: 3}
+```
+
 #### Question 28: Implement the function above using lodash and answer with the source
+
+This one took me a lot of effort, because I actually have to deal with: `[{},{},{}]`.
+
+```javascript
+
+const foo = (...args) => {
+    return _.chain(input)
+            .map((item) => [_.head(_.keys(item)).toUpperCase(), _.head(_.values(item))])
+            .fromPairs()
+            .value()
+}
+```
+
 #### Question 29: Add a script to package JSON so that:
 #### Question 30: Write a code that prints the contents of the env variable
 #### Question 31: What is the value of the statement, `__dirname + '/server'`?
