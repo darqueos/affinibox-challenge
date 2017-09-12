@@ -247,14 +247,62 @@ function cancelRepeat(ID) {
 
 #### Question 20: Convert the code above use `Promises` instead of callbacks
 
-I've never wrote any code that uses `Promises`, but after learning about it from the [mentioned article](https://scotch.io/tutorials/javascript-promises-for-dummies) I chose to implement this using ES2016 specification:
+I've never wrote any code that uses `Promises`, but after learning about it from the [mentioned article](https://scotch.io/tutorials/javascript-promises-for-dummies) I chose to implement this using ES2017 specification, which includes `async` and `await` keywords that I find are interesting to use:
+
+Here I define some constants:
 
 ```javascript
+const fs = require("fs");
+const fp = "./somefile.txt";
+```
 
+Then I create a function to encapsulate the Promise code:
+
+```javascript
+async function tryToRead(filepath) {
+    return new Promise((resolve, reject) => {
+        fs.readFile(filepath, (error, content) => {
+            if (error) {
+                reject(new Error("Failed to read file."));
+            } else {
+                resolve(content.toString());
+            }
+        });
+    });
+}
+```
+
+And then a function to use `try` and `catch`:
+
+```javascript
+async function read(filepath) {
+    try {
+        let content = await tryToRead(filepath);
+        console.log(`Found content: ${content}`);
+    } catch (error) {
+        console.log(error);
+    }
+};
+```
+
+Finally, call the `read` function:
+
+```javascript
+read(fp);
 ```
 
 #### Question 21: What is the resulting phrase?
+
+The program outputs the following to the console:
+
+```bash
+Hello Maria, my name is Jimmy
+Hello Maria, my name is not Jimmy
+```
+
 #### Question 22: How does it work?
+
+The first line is pretty trivial, but the second one works by binding a new value to the `this` scope in `Person`. It replaces the `name` property within the function scope, without actually replacing the value within the class.
 
 ### Nodejs
 
