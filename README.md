@@ -356,7 +356,33 @@ const foo = (...args) => {
 ```
 
 #### Question 29: Add a script to package JSON so that:
+
+First, I create the scrip itself:
+
+```bash
+cat > hello.js
+
+console.log("Hello world!");
+```
+
+Then I have to add the script to `package.json` for `npm` to be able to find it:
+
+```json
+"scripts": {
+    "start": "webpack-dev-server --progress",
+    "build": "rm -rf ./build/* && webpack --config ./webpack.production.config.js --progress && ls ./build",
+    "hello": "node hello.js"
+}
+```
+
 #### Question 30: Write a code that prints the contents of the env variable
+
+`envTest.js` should look like this:
+
+```javascript
+console.log(process.env.MY_VAR);
+```
+
 #### Question 31: What is the value of the statement, `__dirname + '/server'`?
 #### Question 32: Answer with your code for `readMany`
 #### Question 33: Give the npm command to install all the external dependencies
