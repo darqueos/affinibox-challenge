@@ -430,18 +430,103 @@ app.use("/sum", (req, res, next) => {
 
 #### Question 35: Rewrite `times` in the least number of characters as possible using arrow functions.
 
+Function composition is awesome!
 
+```javascript
+const times = t => x => x * t;
+```
 
 #### Question 36: What was the command you used?
+
+After creating `file_a.js` and `file_b.js` and put them in a new folder, I had install babel using a specific preset:
+
+```bash
+npm install --save-dev babel-cli babel-preset-es2015
+```
+
+Use **Babel** to transpile files:
+
+```bash
+node_modules/.bin/babel . -d ./dist
+```
+
+All I have to do to make sure it all works is run:
+
+```bash
+node file_b.js
+```
+
 #### Question 37: Will the code above work?
+
+Yes!
+
 #### Question 38: Why to import just `map`?
+
+I'm just gonna quote Bruce from [Stackoverflow](https://stackoverflow.com/questions/35250500/correct-way-to-import-lodash):
+
+*`import _map from 'lodash/has'` is better because lodash holds all it's functions in a single file, so rather than import the whole 'lodash' library at 100k, it's better to just import lodash's `_map` function which is maybe 2k.*
+
 #### Question 39: Answer with your implementation of `arrTimes`
+
+It's for functionalities like these that the beauty of functional programming stands out:
+
+```javascript
+const arrTimes = (multiplier, ...args) => {
+    return args.map((element) => {
+        return multiplier * element;
+    });
+}
+
+const test = arrTimes(10, 1, 2, 3, 4);
+console.log(test);
+```
 
 ### React
 
 #### Question 40: In a few words, what is React?
+
+React is a JavaScript library for building interfaces. Its strenght is component based and the virtual DOM diff algorithms.
+
 #### Question 41: In a few words, what is React Native?
+
+React Native is a framework to build Android and iOS apps using JavaScript and works very similarly to React. It's different from typical hybrid framworks because it compiles JS to native code. I've never used it, but the fact that Instagram, Airbnb and even Tesla are using it is reason enough to pay attention.
+
 #### Question 42: For all the methods of the class above, answer the questions:
+
+##### Constructor 
+1. It provides a way to execute something before the component initialization.
+2. props - An object containing state.
+3. This is used when the component will initialize with some state.
+
+##### ComponentWillMount
+1. It's called before `render()`.
+2. None.
+3. It's the only hook called if one's doing server rendering.
+
+##### ComponentDidMount
+1. Called immediately after the component is mounted.
+2. None.
+3. Great for doing network requests, as setting new state will trigger a re-rendering.
+
+##### ComponentWillUnmount
+1. Called before umnounting and the component gets destroyed.
+2. None.
+3. Used to perform any cleaning.
+
+##### ComponentWillReceiveProps
+1. Called before a mounted component gets new props.
+2. nextProps - object containing the state to get updated.
+3. To compare state changes.
+
+##### ShouldComponentUpdate
+1. Is called before rendering when new props or state are being received.
+2. nextProps, nextState
+3. Useful to tell React a component do not need to re-render after an update. Note that a render may still occur.
+
+##### Render
+1. It puts everything together and returns a component or an actual DOM element.
+2. No parameters here.
+3. It's required.
 
 ### SQL
 
