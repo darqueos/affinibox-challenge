@@ -553,26 +553,106 @@ find /a_folder -type f -regextype "posix-extended" -iregex "*.(css|sass|scss|les
 ```
 
 #### Question 49: What would be the command to access `root` on `192.168.1.10` on port `2222`?
+
+It's:
+
+```bash
+ssh root@192.168.1.10 -p 2222
+```
+
 #### Question 50: Based on the examples above, what would be command to change `white` to `aliceblue` in all CSS files in a folder?
+
+I would combine the previous command to find all CSS files within a folder:
+
+```bash
+find /a_folder -type f -regextype "posix-extended" -iregex "*.(css|sass|scss|less)"
+```
+
+To the command to replace text within a file:
+
+```bash
+find /a_folder -type f -regextype "posix-extended" -iregex "*.(css|sass|scss|less)" -exec sed -i 's/times/vezes/g' "{}" \;
+```
 
 ### Docker
 
 #### Question 51: In your own words, what is a container and why to use it?
+
+A container is basically an alternative to virtual machines for isolated environments. It runs on the same kernel and filesystem as the host OS, so it requires a lot less space and RAM.
+
 #### Question 52: In your own words, what is Docker?
+
+Docker is a container platform, and its power comes from the Dockerfile, an intuitive way to handle configuration.
+
 #### Question 53: How to this Dockerfile so instead of copying `node_modules` from the local machine it installs using `npm`.
+
+By replacing line 9 for:
+
+```Dockerfile
+RUN npm install
+```
+
 #### Question 54: Knowing the above, answer with the command to start a `Postgres` container on your machine at port `5432`.
+
+```bash
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword postgres
+```
+
 #### Question 55: What was the variable and what was it's value?
+
+The variable was `POSTGRES_PASSWORD` and its value was `mysecretpassword`.
+
 #### Question 56: What would be the command to start a mysql instance?
+
+```bash
+docker run -p 3306:3306 -e MYSQL_ROOT_PASSWORD=mySecretPassword mysql
+```
 
 ### Kubernetes
 
 #### Question 57: Explain what is kubernetes in your own words? (portuguese, if needed)
 
+From what I learned, Kubernetes is a container orchestration platform. It can be used to clusterize containers, managing scaling, individual configuration, and monitoring data.
+
 ### CSS
 
 #### Question 58: What is the color of the text of the `a` element?
+
+Following the CSS specificity order, the `<a>` element will inherit color from:
+
+```css
+#root a {
+    color: green;
+}
+```
+
 #### Question 59: How to make it so the items are in a column and it look like:
+
+I simply added these lines to `.my-menu` class:
+
+```css
+flex-direction: column;
+justify-content: space-between;
+```
+
 #### Question 60: How to make it so the items are centralized on the page with the space around them, like:
+
+The CSS will look like this:
+
+```css
+.my-menu {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.my-link {
+    display: flex;
+    justify-content: center;
+}
+```
 
 ### English
 
