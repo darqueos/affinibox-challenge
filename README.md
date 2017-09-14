@@ -2,7 +2,11 @@
 
 ## Cover Letter
 
-Lorem ipsum...
+Hey! I'm a software engineer focused on developing mobile applications. I've been coding for iOS for almost three years now, and on Android for a few months. 
+
+WHAT IS A MOBILE DEVELOPER ANY USE TO ME?
+
+Plenty! I love JS and all the ecosystem around it. I want to contribute from Affinibox as much as possible while reaching to become a fullstack JS developer, which is one of my main career goals. I have so much to talk, but let's get to business. Hope you enjoy it!
 
 ## Questions
 
@@ -531,10 +535,44 @@ React Native is a framework to build Android and iOS apps using JavaScript and w
 ### SQL
 
 #### Question 43: a `SELECT` statement that reads all the `TradingNames` of the `AffinityGroup`
+
+I don't have any SQL software on my machine, but [this website](http://sqlfiddle.com/) came handy!
+
+This is the easiest one:
+
+```sql
+SELECT tradingName FROM affinityGroup
+```
+
 #### Question 44: a `SELECT` with `JOIN` that reads all the `Name`s of the owners of an `AffinityGroup`
+
+`AffinityGroup` and `User` both share a property on:
+
+```sql
+SELECT name FROM user INNER JOIN affinityGroup ON user.id=affinityGroup.ownerId
+```
+
 #### Question 45: the statement that reads all the `Name`s of Users that are not owners of an `AffinityGroup`:
+
+```sql
+SELECT * FROM user WHERE id NOT IN (SELECT ownerId FROM affinityGroup);
+```
+
 #### Question 46: the first select ordering by `AffinityGroup`.`TradingName`
+
+This gives the first result:
+
+```sql
+SELECT * FROM affinityGroup ORDER BY tradingName LIMIT 1;
+```
+
 #### Question 47: a query that returns only the first letter of the name and the full surname for every user
+
+
+
+```sql
+SELECT SUBSTRING(name,1,1), surname FROM user
+```
 
 ### Linux
 
